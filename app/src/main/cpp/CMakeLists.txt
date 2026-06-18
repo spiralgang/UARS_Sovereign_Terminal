@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.10.2)
+project("uars_kernel")
+add_library(uars_kernel SHARED uars_kernel.c)
+find_library(log-lib log)
+target_link_libraries(uars_kernel ${log-lib})

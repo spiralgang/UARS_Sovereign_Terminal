@@ -1,0 +1,2 @@
+rootProject.name = 'UARS_Sovereign_Terminal'
+include ':app'
