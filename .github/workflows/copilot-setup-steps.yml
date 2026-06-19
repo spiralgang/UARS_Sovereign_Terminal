@@ -1,0 +1,37 @@
+            - name: github-action-auto-format
+  # You may pin to the exact commit or the version.
+  # uses: cloudposse/github-action-auto-format@970af4c15a720047204400fe5b5ae52fb2991e9b
+  uses: cloudposse/github-action-auto-format@v0.12.0
+  with:
+    # The path on the github-runner where the auto-format action scripts are checked out at runtime
+    actions-files-checkout-path: # optional, default is github-action-auto-format
+    # GitHub username for writing new commits
+    bot-name: # optional, default is cloudpossebot
+    # Email address associated with the GitHub user for writing new commits
+    bot-email: # optional
+    # Name of formatting task to execute. (Options include: readme, github, terraform, and context.)
+    format-task: 
+    # GitHub Token for use in `github_format.sh` and PR creation steps. This token must be granted `workflows` permissions.
+    workflow-token: 
+  ---
+  ---
+           - name: AI Code Docs & Reviewer
+  # You may pin to the exact commit or the version.
+  # uses: egor-zasmuzhets/ai-code-docs-action@19a67dc30c8083dbb2d785797b2bf2bdffb1bffb
+  uses: egor-zasmuzhets/ai-code-docs-action@v1.0.0
+  with:
+    # Groq API key (get from https://console.groq.com)
+    api-key: 
+    # Groq model to use
+    model: # optional, default is llama-3.3-70b-versatile
+    # Custom prompt for code review (overrides default)
+    review-prompt: # optional
+    # Custom prompt for documentation (overrides default)
+    doc-prompt: # optional
+    # Comma-separated glob patterns to exclude (e.g., "tests/**,**/*_test.py,venv/**")
+    exclude: # optional, default is 
+    # Path to the documentation file
+    doc-output-path: # optional, default is docs/auto/DOCUMENTATION.md
+    # Directory for review reports
+    review-output-path: # optional, default is docs/reviews/
+          
