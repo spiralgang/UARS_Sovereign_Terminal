@@ -16,13 +16,13 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
     - name: Generate Gradle Wrapper
-      run: gradle wrapper --gradle-version 8.9
+      run: gradle wrapper --gradle-version 8.4
     - name: Build with Gradle
       run: |
         chmod +x gradlew
         ./gradlew assembleDebug
-    - name: Upload APK
+    - name: upload apk
       uses: actions/upload-artifact@v4
       with:
-        name: app-debug
-        path: app/build/outputs/apk/debug/app-debug.apk
+        name: UARS+
+        path: app/build/outputs/apk/debug/UARS+.apk
