@@ -13,10 +13,8 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-    - name: Setup Android SDK
-      uses: android-actions/setup-android@v3
-    - name: Generate Gradle Wrapper
-      run: gradle wrapper --gradle-version 8.9
+    # Android SDK is preinstalled on ubuntu-latest (ANDROID_HOME); setup-android@v3 failed on the removed 'tools' package.
+    # gradlew is committed, so no wrapper generation is needed.
     - name: Build with Gradle
       run: |
         chmod +x gradlew
@@ -25,4 +23,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: UARS+
-        path: app/build/outputs/apk/debug/UARS+.apk
+        path: app/build/outputs/apk/debug/*.apk
+        if-no-files-found: warn
